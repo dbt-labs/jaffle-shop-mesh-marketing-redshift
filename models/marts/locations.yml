@@ -3,6 +3,7 @@ models:
     description: |
       Location dimension table. The grain of the table is one row per location.
     group: marketing
+    access: public
     config:
       contract:
         enforced: true
