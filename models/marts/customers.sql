@@ -6,7 +6,7 @@ customers as (
 
 ),
 
-orders_table as (
+orders as (
 
     select * from {{ ref('jaffle_shop_mesh_platform', 'orders') }}
 
@@ -15,12 +15,13 @@ orders_table as (
 order_items_table as (
 
     select * from {{ ref('jaffle_shop_mesh_finance', 'order_items') }}
+
 ),
 
 order_summary as (
 
     select
-        customers.customer_id,
+        orders.customer_id,
 
         count(distinct orders.order_id) as count_lifetime_orders,
         count(distinct orders.order_id) > 1 as is_repeat_buyer,
@@ -29,7 +30,7 @@ order_summary as (
         sum(order_items.product_price) as lifetime_spend_pretax,
         sum(orders.order_total) as lifetime_spend
 
-    from orders_table as orders
+    from orders
 
     left join
         order_items_table as order_items
