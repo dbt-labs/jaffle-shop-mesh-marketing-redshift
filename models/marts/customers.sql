@@ -20,7 +20,7 @@ order_items_table as (
 order_summary as (
 
     select
-        orders.customer_id,
+        customers.customer_id,
 
         count(distinct orders.order_id) as count_lifetime_orders,
         count(distinct orders.order_id) > 1 as is_repeat_buyer,

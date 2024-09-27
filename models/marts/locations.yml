@@ -2,7 +2,6 @@ models:
   - name: locations
     description: |
       Location dimension table. The grain of the table is one row per location.
-    access: protected
     group: marketing
     config:
       contract:
@@ -15,4 +14,4 @@ models:
       - name: tax_rate
         data_type: float
       - name: opened_at
-        data_type: timestamp_ntz
+        data_type: timestamp
