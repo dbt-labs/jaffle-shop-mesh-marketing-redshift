@@ -1,10 +1,7 @@
-projects:
-  - name: jaffle_shop_mesh_platform
-  - name: jaffle_shop_mesh_finance
-
 packages:
   - private: dbt-labs/jaffle-shop-mesh-platform-redshift
+    revision: d0aff8c7b4089260be307a8fc2cd9011ab5a80e3
     subdirectory: jaffle_utils
-    warn-unpinned: false
   - package: dbt-labs/dbt_utils
     version: 1.1.1
+sha1_hash: ee93461f4868b20836fc0eefbe2f5fbbbd4d71eb

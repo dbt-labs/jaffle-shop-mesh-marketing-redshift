@@ -2,19 +2,20 @@ with
 
 customers as (
 
-    select * from {{ ref('stg_customers') }}
+    select * from {{ ref('jaffle_shop_mesh_platform', 'stg_customers') }}
 
 ),
 
-orders_table as (
+orders as (
 
-    select * from {{ ref('orders') }}
+    select * from {{ ref('jaffle_shop_mesh_platform', 'orders') }}
 
 ),
 
 order_items_table as (
 
-    select * from {{ ref('order_items') }}
+    select * from {{ ref('jaffle_shop_mesh_finance', 'order_items') }}
+
 ),
 
 order_summary as (
@@ -29,7 +30,7 @@ order_summary as (
         sum(order_items.product_price) as lifetime_spend_pretax,
         sum(orders.order_total) as lifetime_spend
 
-    from orders_table as orders
+    from orders
 
     left join
         order_items_table as order_items
