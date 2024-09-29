@@ -3,6 +3,8 @@ projects:
   - name: jaffle_shop_mesh_finance
 
 packages:
+  - private: dbt-labs/jaffle-shop-mesh-platform-redshift
+    subdirectory: jaffle_utils
+    warn-unpinned: false
   - package: dbt-labs/dbt_utils
     version: 1.1.1
-  
