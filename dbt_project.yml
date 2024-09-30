@@ -4,3 +4,4 @@ models:
   jaffle_shop_mesh_marketing:
     marts:
       +materialized: table
+      +grants: {select: [cdo_carmi]}
